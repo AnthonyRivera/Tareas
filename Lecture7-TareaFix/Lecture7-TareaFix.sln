@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture7-TareaFix", "Lecture7-TareaFix.csproj", "{4391A4FB-28CA-4757-BA8E-28D3510A99F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture7-TareaArea", "..\Lecture7-TareaArea\Lecture7-TareaArea.csproj", "{CF5AA9FF-F5A1-4BC2-9EF4-D79C5108BFDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4391A4FB-28CA-4757-BA8E-28D3510A99F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4391A4FB-28CA-4757-BA8E-28D3510A99F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4391A4FB-28CA-4757-BA8E-28D3510A99F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4391A4FB-28CA-4757-BA8E-28D3510A99F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5AA9FF-F5A1-4BC2-9EF4-D79C5108BFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5AA9FF-F5A1-4BC2-9EF4-D79C5108BFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5AA9FF-F5A1-4BC2-9EF4-D79C5108BFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5AA9FF-F5A1-4BC2-9EF4-D79C5108BFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B95386B3-8B55-4CAE-B019-CFCC753635BB}
+	EndGlobalSection
+EndGlobal
