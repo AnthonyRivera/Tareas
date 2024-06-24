@@ -26,7 +26,7 @@ namespace Lecture11_Tarea
                 }
 
                 int result = num1 / num2;
-                Console.WriteLine($"The answer for the division of the two numbers is: {num1} / {num2} = {resultado}");
+                Console.WriteLine($"The result for the division of the two numbers is: {num1} / {num2} = {result}");
             }
             catch (FormatException)
             {
