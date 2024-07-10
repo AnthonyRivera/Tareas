@@ -1,0 +1,38 @@
+﻿@model Books.Domain.Models.Book
+@{
+    ViewData["Title"] = "Creating Book";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Agregando un libro</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create" asp-controller="Book">
+
+                <div class="col-md-3">
+                  <label asp-for="BookName"> Nombre: </label>
+                  <input type="text" class="form-control" asp-for="BookName" />
+                    <span asp-validation-for="BookName" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Author"> Autor: </label>
+                    <input type="text" class="form-control" asp-for="Author" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="ReleaseYear">Año de salida </label>
+                    <input type="text" class="form-control" asp-for="ReleaseYear" />
+                    <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                 <button type="submit" class="btn btn-primary" >Guardar</button>
+                </div>
+            </form>
+          
+        </div>
+    </div>
+
+ 
+</div>

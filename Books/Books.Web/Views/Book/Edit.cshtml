@@ -1,0 +1,38 @@
+﻿@model Books.Domain.Models.Book
+@{
+    ViewData["Title"] = "Editar de contacto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editando un libro</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Edit" asp-controller="Book">
+               <input type="hidden" asp-for="BookId" />
+                <div class="col-md-3">
+                  <label asp-for="BookName"> Nombre: </label>
+                  <input type="text" class="form-control" asp-for="BookName" />
+                    <span asp-validation-for="BookName" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Author"> Autor: </label>
+                    <input type="text" class="form-control" asp-for="Author" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="ReleaseYear"> </label>
+                    <input type="text" class="form-control" asp-for="ReleaseYear" />
+                    <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                 <button type="submit" class="btn btn-primary" >Guardar</button>
+                </div>
+            </form>
+          
+        </div>
+    </div>
+
+ 
+</div>
