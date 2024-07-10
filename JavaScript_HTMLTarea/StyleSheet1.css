@@ -1,0 +1,13 @@
+﻿
+h1 {
+    color: aquamarine;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+
+button {
+    padding: 30px;
+    font-size: 30px;
+    cursor: pointer;
+}
