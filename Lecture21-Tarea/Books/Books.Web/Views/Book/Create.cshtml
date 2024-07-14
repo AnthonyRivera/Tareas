@@ -1,0 +1,65 @@
+﻿@model Books.Domain.Models.Book
+@{
+    ViewData["Title"] = "Creating Book";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Agregando un libro</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form id="contactForm">
+
+                <div class="col-md-3">
+                  <label asp-for="BookName"> Nombre: </label>
+                  <input id="BookName" type="text" class="form-control" asp-for="BookName" />
+                    <span id="BookNameValidation" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Author"> Autor: </label>
+                    <input id="Author" type="text" class="form-control" asp-for="Author" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="ReleaseYear">Año de salida </label>
+                    <input id="ReleaseYear" type="text" class="form-control" asp-for="ReleaseYear" />
+                    <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary" onclick="createBook()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div> 
+</div>
+@section Scripts{ 
+    <script>
+       
+        function createBook() {
+            //let bookName = document.getElementById('BookName').textContent();
+            // let bookName = $('#BookName').val();
+        let book = {
+            BookId: 0,
+            BookName: $('#BookName').val(),
+            Author: $('#Author').val(),
+            ReleaseYear: $('#ReleaseYear').val()
+        };
+            $.ajax({
+                url: 'https://localhost:7034/api/Book',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(book),
+                success: function (result) {
+                window.location.href = '/Book/Index';
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert('ocurrio un error')
+                }
+                });
+
+                //console.log(book.Author);
+            }
+    </script>
+    }

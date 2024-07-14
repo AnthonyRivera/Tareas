@@ -1,0 +1,57 @@
+﻿@model Books.Domain.Models.Book
+@{
+    ViewData["Title"] = "Elimiinar libro";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Está seguro de eliminar este registro?</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form id="deleteBookForm">
+               <input type="hidden" id="BookId" />
+                <div class="col-md-3">
+                  <label > Nombre: </label>
+     
+                    <label id ="BookName">   </label>
+                </div>
+                <div class="col-md-3">
+                    <label > Autor: </label>
+               
+                    <label id="Author">   </label>
+                </div>
+                <div class="col-md-3">
+                    <label>Release Year: </label>
+              
+                    <label id="ReleaseYear">   </label>
+                </div>
+                <div class="col-md-3">
+                 <button type="button" class="btn btn-danger" onclick="deleteBook(0)">Eliminar</button>
+                </div>
+            </form>
+          
+        </div>
+    </div>
+
+ 
+</div>
+@section Scripts {
+    <script src="~/js/books/getBook.js"></script>
+    <script src="~/js/books/deleteBook.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            let bookId = window.location.pathname.split('/').pop();
+
+           
+            if (bookId) {
+                $('#BookId').val(bookId);
+                loadBook(bookId);
+            } else {
+                alert('ID de libro no encontrado en la URL');
+            }
+        });
+
+    </script>
+}

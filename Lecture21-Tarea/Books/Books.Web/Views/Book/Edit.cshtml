@@ -1,0 +1,85 @@
+﻿@model Books.Domain.Models.Book
+@{
+    ViewData["Title"] = "Editar de contacto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editando un libro</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form id="editContactForm">
+               <input type="hidden" id="BookId" value="@Model.BookId"/>
+                <div class="col-md-3">
+                  <label > Nombre: </label>
+                  <input id="BookName" type="text" class="form-control" />
+                    <span class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label > Autor: </label>
+                    <input id="Author" type="text" class="form-control" />
+                    <span  class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label > Release Year: </label>
+                    <input id="ReleaseYear" type="text" class="form-control"  />
+                    <span  class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                 <button type="button" class="btn btn-primary" 
+                 onclick="updateBook()">Guardar</button>
+                </div>
+            </form>
+          
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            let bookId = $('#BookId').val();
+            loadBook(bookId);
+        });
+
+        function loadBook(bookId) {
+            $.ajax({
+                url: `https://localhost:7034/api/Book/${bookId}`,
+                type: 'GET',
+                success: function (book) {
+                    $('#BookName').val(book.bookName);
+                    $('#Author').val(book.author);
+                    $('#ReleaseYear').val(book.releaseYear);
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert('Ocurrió un error al cargar los datos del libro');
+                }
+            });
+        }
+
+        function updateBook() {
+            let bookId = $('#BookId').val();
+            let book = {
+                "bookId": bookId,
+                "bookName": $('#BookName').val(),
+                "author": $('#Author').val(),
+                "releaseYear": $('#ReleaseYear').val()
+            };
+
+            $.ajax({
+                url: `https://localhost:7034/api/Book/${bookId}`,
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(book),
+                success: function (result) {
+                    window.location.href = '/Book/Index';
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert('Ocurrió un error');
+                }
+            });
+        }
+    </script>
+}
