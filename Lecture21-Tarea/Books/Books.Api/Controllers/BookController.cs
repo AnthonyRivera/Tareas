@@ -107,7 +107,7 @@ namespace Books.Api.Controllers
                  return CreatedAtRoute("GetBook", new { id = bookDb.BookId }, model);*/
                 var bookToCreate = _mapper.Map<Book>(model);
 
-                _bookService.AddBook(bookToCreate);
+                await _bookService.AddBook(bookToCreate);
 
                 var bookToReturn = _mapper.Map<BookDto>(bookToCreate);
 
@@ -120,7 +120,7 @@ namespace Books.Api.Controllers
         }
 
         [HttpPut("{id}", Name = "UpdateBook")]
-        public async Task<IActionResult> Update(int id, [FromBody] Book model)
+        public async Task<IActionResult> Update(int id, [FromBody] CreateBookDto model)
         {
             if (model == null || id != model.BookId)
             {
@@ -144,7 +144,7 @@ namespace Books.Api.Controllers
                 return Ok(bookFromDb);*/
                 var bookToUpdate = _mapper.Map<Book>(model);
 
-                _bookService.UpdateBook(bookToUpdate);
+                await _bookService.UpdateBook(bookToUpdate);
 
                 return Ok(model);
 
