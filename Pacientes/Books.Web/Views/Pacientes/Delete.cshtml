@@ -1,0 +1,57 @@
+﻿@model Books.Domain.Models.Paciente
+@{
+    ViewData["Title"] = "Elimiinar Paciente";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Está seguro de eliminar este registro?</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form id="deletePacienteForm">
+               <input type="hidden" id="ID" />
+                <div class="col-md-3">
+                  <label > Nombre: </label>
+     
+                    <label id ="FirstName">   </label>
+                </div>
+                <div class="col-md-3">
+                    <label > Apellido: </label>
+               
+                    <label id="LastName">   </label>
+                </div>
+                <div class="col-md-3">
+                    <label>Sexo: </label>
+              
+                    <label id="Sex">   </label>
+                </div>
+                <div class="col-md-3">
+                 <button type="button" class="btn btn-danger" onclick="deletePaciente(0)">Eliminar</button>
+                </div>
+            </form>
+          
+        </div>
+    </div>
+
+ 
+</div>
+@section Scripts {
+    <script src="~/js/pacientes/getPaciente.js"></script>
+    <script src="~/js/pacientes/deletePaciente.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            let ID = window.location.pathname.split('/').pop();
+
+           
+            if (ID) {
+                $('#ID').val(ID);
+                loadPaciente(ID);
+            } else {
+                alert('ID de paciente no encontrado en la URL');
+            }
+        });
+
+    </script>
+}

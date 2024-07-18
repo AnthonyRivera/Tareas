@@ -1,0 +1,65 @@
+﻿@model Books.Domain.Models.Paciente
+@{
+    ViewData["Title"] = "Creating Paciente";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Agregando un paciente</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form id="contactForm">
+
+                <div class="col-md-3">
+                  <label asp-for="FirstName"> Nombre: </label>
+                  <input id="FirstName" type="text" class="form-control" asp-for="FirstName" />
+                    <span id="PacienteNameValidation" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="LastName"> Apellido: </label>
+                    <input id="LastName" type="text" class="form-control" asp-for="LastName" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Sex">Sexo </label>
+                    <input id="Sex" type="text" class="form-control" asp-for="Sex" />
+                    <span asp-validation-for="Sex" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary" onclick="createPaciente()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div> 
+</div>
+@section Scripts{ 
+    <script>
+       
+        function createPaciente() {
+            //let bookName = document.getElementById('BookName').textContent();
+            // let bookName = $('#BookName').val();
+        let paciente = {
+            ID: 0,
+            FirstName: $('#FirstName').val(),
+            LastName: $('#LastName').val(),
+            Sex: $('#Sex').val()
+        };
+            $.ajax({
+                url: 'https://localhost:7034/api/Pacientes',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(paciente),
+                success: function (result) {
+                window.location.href = '/Paciente/Index';
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert('ocurrio un error')
+                }
+                });
+
+                //console.log(book.Author);
+            }
+    </script>
+    }
